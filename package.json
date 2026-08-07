@@ -1,0 +1,16 @@
+{
+  "name": "golden-date-quest",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A tiny pixel-art coffee date invitation starring a Golden Retriever.",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "test": "node --test",
+    "telegram:chat-id": "node scripts/get-chat-id.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

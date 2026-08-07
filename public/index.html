@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#ef8fac" />
+    <meta
+      name="description"
+      content="A tiny pixel-art coffee date invitation starring one very hopeful Golden Retriever."
+    />
+    <title>A Little Date Quest</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700&family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="pixel-sky" aria-hidden="true">
+      <span class="cloud cloud-one"></span>
+      <span class="cloud cloud-two"></span>
+      <span class="sky-heart sky-heart-one">♥</span>
+      <span class="sky-heart sky-heart-two">♥</span>
+      <span class="sky-heart sky-heart-three">♥</span>
+      <div class="far-hills"></div>
+      <div class="near-hills"></div>
+      <div class="pixel-flowers"></div>
+    </div>
+
+    <div id="boot-screen" class="boot-screen">
+      <div class="boot-card pixel-panel">
+        <div class="mail-icon" aria-hidden="true">
+          <span class="mail-heart">♥</span>
+        </div>
+        <p class="eyebrow">YOU HAVE ONE NEW QUEST</p>
+        <h1>A little question<br />is waiting for you...</h1>
+        <button id="start-button" class="pixel-button primary-button start-button" type="button">
+          <span>PRESS START</span>
+          
+        </button>
+        
+      </div>
+    </div>
+
+    <main id="game" class="game-shell is-hidden" aria-label="A Little Date Quest">
+      <header class="game-header">
+        <div class="brand-lockup">
+          <span class="tiny-paw" aria-hidden="true">●</span>
+          <div>
+            <p class="game-kicker">A LITTLE</p>
+            <p class="game-title">DATE QUEST</p>
+          </div>
+        </div>
+
+        <div class="quest-progress" aria-label="Quest progress">
+          <span class="progress-label">QUEST</span>
+          <div id="progress-pips" class="progress-pips" aria-hidden="true">
+            <span class="pip is-active">♥</span>
+            <span class="pip">♥</span>
+            <span class="pip">♥</span>
+            <span class="pip">♥</span>
+            <span class="pip">♥</span>
+          </div>
+        </div>
+
+        <button id="sound-toggle" class="sound-toggle" type="button" aria-label="Mute music">
+          <span id="sound-icon" aria-hidden="true">♪</span>
+        </button>
+      </header>
+
+      <div class="game-screen">
+        <div class="screen-glow" aria-hidden="true"></div>
+        <div id="heart-particles" class="heart-particles" aria-hidden="true"></div>
+
+        <section id="invite-stage" class="stage invite-stage is-active" aria-labelledby="invite-question">
+          <div class="dialogue-wrap intro-dialogue">
+            <div class="name-tag">GOLDIE</div>
+            <div class="speech-bubble">
+              <p id="invite-question" class="dialogue-text" aria-live="polite">
+                Will you go out for coffee with me?
+              </p>
+              <span class="dialogue-caret" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="character-stage intro-character-stage">
+            <span class="sparkle sparkle-one" aria-hidden="true">✦</span>
+            <span class="sparkle sparkle-two" aria-hidden="true">✦</span>
+            <img
+              id="intro-dog"
+              class="dog-sprite intro-dog"
+              src="/assets/sitting-dog.png"
+              alt="A cute pixel-art Golden Retriever surrounded by hearts"
+              draggable="false"
+            />
+            <div class="ground-shadow" aria-hidden="true"></div>
+          </div>
+
+          <div id="answer-arena" class="answer-arena" aria-label="Choose your answer">
+            <button id="yes-button" class="pixel-button yes-button" type="button">
+              YES! <span aria-hidden="true">♥</span>
+            </button>
+            <button id="no-button" class="pixel-button no-button" type="button">NO</button>
+          </div>
+          <p id="tease-caption" class="tease-caption" aria-live="polite">Choose wisely, brave adventurer.</p>
+        </section>
+
+        <section id="question-stage" class="stage question-stage" aria-labelledby="question-text">
+          <div class="question-layout">
+            <div class="quest-character-column">
+              <div class="dialogue-wrap side-dialogue">
+                <div class="name-tag">GOLDIE</div>
+                <div class="speech-bubble">
+                  <p id="question-text" class="dialogue-text" aria-live="polite"></p>
+                  <span class="dialogue-caret" aria-hidden="true"></span>
+                </div>
+              </div>
+              <div class="character-stage waiter-character-stage">
+                <img
+                  class="dog-sprite waiter-dog"
+                  src="/assets/waiter-dog.png"
+                  alt="A smiling pixel-art Golden Retriever dressed as a café waiter"
+                  draggable="false"
+                />
+                <div class="ground-shadow" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <div class="quest-card-column">
+              <div class="step-heading">
+                <span id="step-number" class="step-number">STEP 01</span>
+                <h2 id="step-title">Pick our day</h2>
+                <p id="step-subtitle">Choose a day that makes you smile.</p>
+              </div>
+              <div id="choice-panel" class="choice-panel" aria-live="polite"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="final-stage" class="stage final-stage" aria-labelledby="final-heading">
+          <div class="final-layout">
+            <div class="final-character-column">
+              <div class="dialogue-wrap final-dialogue">
+                <div class="name-tag">GOLDIE</div>
+                <div class="speech-bubble gift-bubble">
+                  <p class="dialogue-text">For you.</p>
+                  <span class="dialogue-caret" aria-hidden="true"></span>
+                </div>
+              </div>
+              <div class="character-stage flower-character-stage">
+                <img
+                  class="dog-sprite flower-dog"
+                  src="/assets/flower-dog.png"
+                  alt="A shy pixel-art Golden Retriever offering a bouquet of pink flowers"
+                  draggable="false"
+                />
+                <div class="ground-shadow" aria-hidden="true"></div>
+              </div>
+            </div>
+
+            <article class="date-card pixel-panel">
+              <div class="date-card-ribbon">QUEST COMPLETE!</div>
+              <p class="date-card-kicker">IT'S A DATE</p>
+              <h2 id="final-heading">Coffee with you<br />sounds perfect.</h2>
+              <div class="date-details">
+                <div class="date-detail-row">
+                  <span class="detail-icon" aria-hidden="true">▣</span>
+                  <div>
+                    <span class="detail-label">WHEN</span>
+                    <strong id="summary-date">—</strong>
+                  </div>
+                </div>
+                <div class="date-detail-row">
+                  <span class="detail-icon" aria-hidden="true">◷</span>
+                  <div>
+                    <span class="detail-label">TIME</span>
+                    <strong id="summary-time">—</strong>
+                  </div>
+                </div>
+                <div class="date-detail-row">
+                  <span class="detail-icon" aria-hidden="true">⌂</span>
+                  <div>
+                    <span class="detail-label">PLACE</span>
+                    <strong id="summary-place">@moria_cafemn</strong>
+                  </div>
+                </div>
+              </div>
+              <div id="answer-keepsakes" class="answer-keepsakes"></div>
+              <p class="final-note">I'll be the one with the very happy tail. ♥</p>
+              <div id="delivery-status" class="delivery-status" role="status">
+                Saving our little plan...
+              </div>
+            </article>
+          </div>
+        </section>
+      </div>
+
+      <footer class="game-footer">
+        <span>PLAYER 1: YOU</span>
+        <span class="footer-message">Good luck</span>
+        <span>LV. ♥</span>
+      </footer>
+    </main>
+
+    <audio id="background-music" loop preload="auto">
+      <source src="1.mp4" type="audio/mpeg" />
+    </audio>
+
+    <noscript>This tiny date quest needs JavaScript enabled to play.</noscript>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>
